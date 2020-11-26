@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kurs</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+	<div id="app">
+		<table class="table">
+			<tr v-for="item in students"  v-bind:key="item._id"> 
+				<td>{{item.name}}</td><td><input type="checkbox" v-model="item.isDonePr"></td><td>{{item.group}}</td><td>{{item.__v}}</td><td>{{item.mark}}</td><td><a href = "#" @click="deleteStudent(item.id)">Видалити</a></td>
+			</tr>
+		</table>
+
+			<input v-model="student.pib">
+			<input type="checkbox" v-model="student.zdav">
+			<select v-model="student.group">
+				<option value="RPZ 17 1/9">RPZ 17 1/9</option>
+				<option value="RPZ 17 2/9">RPZ 17 2/9</option>
+			</select>
+			<button @click="addStudent()">Добавить</button>
+
+	</div>
+<hr>
+    <div id="app2">
+		<h3>Введите сумму </h3>
+		<input v-model = "currency"> <br>
+		<br><span>перевести из</span>
+		<select v-model = "currency1"> <option v-for="item in conver" :value="item.buy">{{item.ccy}}</option> <select>
+		<span>в</span>
+		<select v-model = "currency2"><option v-for="item in conver" :value="item.buy">{{item.ccy}}</option></select><br><br>
+			<button v-on:click="Calc()">Конвертировать</button><br><br>
+			<h3 v-if="converted">{{res}}</h3>
+	</div>
+
+
+</body>
+</html>
